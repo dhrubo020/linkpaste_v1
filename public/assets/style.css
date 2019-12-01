@@ -1,0 +1,43 @@
+html {
+    font-family: verdana;
+    font-size: 10pt;
+    line-height: 25px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 300px;
+   /* overflow-x: scroll;*/
+    display:list-item;
+  }
+  
+  thead {
+    background-color: #EFEFEF;
+  }
+  
+  thead,
+  tbody {
+    display: block;
+    
+  }
+  
+  tbody {
+    overflow-y: scroll; height: 441px;
+    display:block;
+    float:center;
+    margin-left: 20%;
+  }
+  ::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+  }
+  
+  td,
+  th {
+    min-width: 100px;
+    height: 25px;
+    border: dashed 1px lightblue;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+  }

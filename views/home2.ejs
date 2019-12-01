@@ -1,0 +1,235 @@
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Chat</title>
+    <link rel="stylesheet" href="assets/home2.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"></script>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<!--Coded With Love By Mutiullah Samim-->
+
+<body>
+    <div class="container-fluid h-100">
+        <div class="row justify-content-center h-100">
+            <div class="col-md-4 col-xl-3 chat">
+                <div class="card mb-sm-3 mb-md-0 contacts_card">
+                    <div class="card-header">
+                        <div class="input-group">
+                            <input type="text" placeholder="Search..." name="" class="form-control search">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text search_btn"><i class="fas fa-search"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body contacts_body">
+                        <% if (data.length > 0) { %>
+                        <ui class="contacts">
+                            <% for( let i=0; i< data.length; i++ ) { %>
+                            <li class="active">
+                                <div class="d-flex bd-highlight">
+                                    <div class="img_cont">
+                                        <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                                            class="rounded-circle user_img">
+                                    </div>
+
+                                    <div class="user_info">
+                                        <a class="click_contact" data-id="<%= data[i].Id %>" href="#"
+                                            style="text-decoration:none; ">
+
+                                            <span><%= data[i].PublicKey %></span>
+                                        </a>
+
+                                    </div>
+
+                                </div>
+                            </li>
+
+                            <% }; %>
+                        </ui>
+                        <% } else { %>
+                        <p class="text-center">No items found.</p>
+                        <% } %>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-8 col-xl-6 chat">
+                <div class="card" id="div_msg_id">
+                    <div class="card-header msg_head">
+                        <div class="d-flex bd-highlight">
+                            <div class="img_cont">
+                                <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                                    class="rounded-circle user_img">
+                                <span class="online_icon"></span>
+                            </div>
+                            <div class="user_name user_info" style="color: white; font-size:x-large;">
+                                <% if(data.name){%>
+                                <strong><%=data.name%></strong>
+                                <%}else{%>
+                                <span></span>
+                                <%}%>
+                                
+                            </div>
+                        </div>
+
+
+                        <span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
+                        <div class="action_menu">
+                            <ul>
+                                <li><i class="fas fa-user-circle"></i> View profile</li>
+                                <li><i class="fas fa-users"></i> Add to close friends</li>
+                                <li><i class="fas fa-plus"></i> Add to group</li>
+                                <li><i class="fas fa-ban"></i> Block</li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="card-body msg_card_body" id="msg">
+                            <div class="d-flex justify-content-start mb-4">
+                                    <div class="img_cont_msg">
+                                        <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
+                                    </div>
+                                    <div class="msg_cotainer" id="chatid">
+                                        
+                                        <span class="msg_time"></span>
+                                    </div>
+                                </div>
+
+                                
+                                <div class="d-flex justify-content-end mb-4">
+                                    <div class="msg_cotainer_send" id="userid">
+                                        
+                                        <span class="msg_time_send"></span>
+                                    </div>
+                                    <div class="img_cont_msg">
+                                    </div>
+                                </div>
+                    </div>
+
+
+                    <div class="card-footer">
+                        <div class="input-group">
+                            <div class="input-group-append">
+                                <span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
+                            </div>
+                            <textarea name="" class="form-control type_msg" id="txt_msg"
+                                placeholder="Type your message..."></textarea>
+                            <div class="input-group-append">
+                                <input type="button" id="textarea_value" class="btn" value="Send">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+    $(document).ready(function () {
+        var frnd_id;
+        var ssid;
+        
+
+        $(".click_contact").click(function () {
+
+            frnd_id = $(this).attr("data-id");
+            console.log(frnd_id);
+            $.ajax({
+                url: '/loadmsg',
+                data: { id: frnd_id },
+                type: 'GET',
+                success: function (data) {
+                    if (!data.error) {
+                        $('.user_name').html(data.name);
+
+                        var msglist = data.From;
+                        ssid = data.ssUser;
+                        console.log(ssid);
+                        console.log(msglist);
+
+                        var chatid = document.getElementById("chatid");
+                        chatid.innerHTML = "";
+                        var userid = document.getElementById("userid");
+                        userid.innerHTML = "";
+
+                        for (var i = 0; i < msglist.length; i++) {
+                            console.log(msglist[i].FromUserId+"  "+msglist[i].Text);
+                            if(msglist[i].FromUserId === ssid){
+                                userid.innerHTML = "<div class=''>" + userid.innerHTML + "" + msglist[i].Text + "<hr></div>";
+                            }else{
+                                chatid.innerHTML = "<div class=''>" + chatid.innerHTML + "" + msglist[i].Text + "<hr></div>";
+                            }
+                        }
+
+
+                    } else {
+                        console.log("data missing");
+                    }
+                }
+            });
+        });
+
+            $("#textarea_value").click(function () {
+            
+            var msg= $("#txt_msg").val();
+            $("textarea").val('');
+            console.log(msg);
+            if(msg =='') {
+                console.log("Empty message");
+                alert("Empty message");
+            }
+            var data = {
+                "Text": msg, 
+                "Frnd_id": frnd_id, 
+                "User_id": ssid 
+            }
+            $.ajax({
+                url: '/sendmsg',
+                data: data,
+                type: 'POST',
+                success: function (data) {
+                    if (!data.error) {
+                        console.log(data.MSG);
+                        var userid = document.getElementById("userid");
+                        userid.innerHTML = "<div class=''>" + userid.innerHTML + "" + data.MSG + "<hr></div>";
+                    } else {
+                        console.log("data missing");
+                    }
+                }
+            });
+        });
+
+
+    });
+
+</script>
+
+
+</body>
+
+
+
+</html>

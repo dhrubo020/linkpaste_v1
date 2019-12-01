@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>Collapsible sidebar using Bootstrap 4</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="assets/style2.css">
+    <script type="text/javascript" src="assets/js.js"></script>
+      <link rel="stylesheet" href="assets/style.css">
+      <link rel="stylesheet" href="assets/chatbox.css">
+      <link rel="stylesheet" href="assets/home2.css">
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <div class="wrapper">
+        
+        <div id="content">
+            <!--
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item">
+                                 <div class="">
+                                        <input type="text" autocomplete="off" placeholder="Search" />
+                                        <div class="result"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+             -->
+            <div class="" style="margin-top: 70px;">
+                <article class="card-body mx-auto" style="max-width: 400px;">
+                    <h4 class="card-title mt-3 text-center">Create Account</h4>
+                    <hr>
+
+
+        <form class="form-horizontal"  method="post" action="/signup" >
+                        <!--  Email -->
+                        <p style="color:white"> Yor Email</p>
+                        
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                                </div>
+                            <input onchange="showUser(this.value)" type="text" class="form-control" 
+                                name="email" id="emailID" value="" placeholder="Email" required> 
+                            <p id="emailcheck"></p>                                      
+                        </div>
+                    
+                        <!-- public key -->
+                        <p style="color:white">People can find you by your public key</p>   
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                            </div>
+                           <input id="handle" type="text" class="form-control" name="publicKey" id="publicKeyID" placeholder="Public Key" required>
+                        </div>
+
+                        <!-- private key -->
+                        <p style="color:white">This is your personal login key</p>   
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                            </div>
+                              <input id="handle" type="text" class="form-control" name="privateKey" id="privateKeyID"placeholder="Private Key" required>
+                        </div>
+        
+                        <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+                            </div> <!-- form-group// -->      
+                            <p class="text-center" style="color:white">Have an account? <a href="/login">Log In</a> </p>  
+                    
+                </form>
+            </article>
+        </div> <!-- card.// -->
+
+        </div>    
+    </div>
+
+    
+    <script type="text/javascript">
+           
+    </script>
+</body>
+
+</html>
